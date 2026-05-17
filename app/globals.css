@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --font-display: "Didot", "Bodoni 72", "Bodoni 72 Smallcaps", Georgia, serif;
+  --font-sans: "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #0c0f14;
+  color: #fffaf1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px);
+  background-size: 76px 76px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(215, 25, 32, 0.2), transparent 34%),
+    radial-gradient(circle at 80% 10%, rgba(216, 198, 163, 0.13), transparent 30%),
+    linear-gradient(180deg, rgba(18, 21, 28, 0.18), #0c0f14 72%);
+  pointer-events: none;
+}
+
+::selection {
+  background: rgba(215, 25, 32, 0.62);
+  color: white;
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E");
+}
+
+.speed-line {
+  position: relative;
+}
+
+.speed-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(215, 25, 32, 0.9), transparent);
+}
